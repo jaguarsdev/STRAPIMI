@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TeacherName": {
+      "type": "string",
+      "required": true
+    },
+    "TeacherImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "TeacherBio": {
+      "type": "richtext"
+    },
+    "UniqueID": {
+      "type": "uid",
+      "targetField": "TeacherName",
+      "required": true
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "mappedBy": "teachers"
+    }
+  }
+}

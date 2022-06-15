@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CourseTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CourseContent": {
+      "type": "richtext",
+      "required": true
+    },
+    "UniqueID": {
+      "type": "uid",
+      "targetField": "CourseTitle",
+      "required": true
+    },
+    "ShowCourse": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "CourseImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "CourseTime": {
+      "type": "integer"
+    },
+    "CourseSession": {
+      "type": "integer"
+    },
+    "CourseMember": {
+      "type": "biginteger"
+    },
+    "teachers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::teacher.teacher",
+      "inversedBy": "courses"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "courses"
+    }
+  }
+}
