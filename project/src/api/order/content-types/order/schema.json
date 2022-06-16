@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "OrderProductName": {
+    "customerName": {
       "type": "string",
       "required": true
     },
@@ -39,6 +39,10 @@
     "OrderNote": {
       "type": "richtext",
       "required": false
+    },
+    "productBuyed": {
+      "type": "json",
+      "required": true
     }
   }
 }
