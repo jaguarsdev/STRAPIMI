@@ -11,9 +11,10 @@ module.exports = createCoreController('api::lesson.lesson'
     
     
     async findOne(ctx, next) {
+
         // get lesson data
         const response = await super.findOne(ctx); 
-        const lessons = response.data.attributes.UniqueID;
+        const lessons = response.data.id;
         
         // Add populate "orders" in api
         const entries = await strapi.entityService.findOne('plugin::users-permissions.user', ctx.state.user.id, {
@@ -23,33 +24,40 @@ module.exports = createCoreController('api::lesson.lesson'
             populate: { orders: true },
         });
 
-        // const entries = await strapi.entityService.findOne('plugin::users-permissions.user', {
-        //     // fields: ['LessonTitle', 'Lesson One'],
-        //     filters: { id: ctx.state.user.id },
-        //     // sort: { createdAt: 'DESC' },
-        //     populate: { orders: true },
-        // });
         
         // get user payed
-        const userbuy = await ctx.state.user.Payed;
-
+        const userbuy = await entries.orders;
+        
         // Function Validation is user buy product or not
-        const search = async (nameKey, myArray) => {
-            for (var i=0; i < myArray.length; i++) {
-                if (myArray[i].uniqueid === nameKey) {
-                    return response;
+        const search = async (lessons, userbuy) => {
+
+            for (var i=0; i < userbuy.length; i++) {
+
+                for (var b=0; b < userbuy[i].productBuyed.length; b++) {
+                    
+                    if (userbuy[i].productBuyed[b].id === lessons) {
+                        return response;
+                    }
                 }
             }
             return ctx.body = "you dont have prem"
         }
         // return data
-        // return search(lessons, await userbuy);
-
+        return search(lessons, await userbuy);
         
         
-        return entries;
         
+        // return lessons; 
     }
+    
+    // const entries = await strapi.entityService.findOne('plugin::users-permissions.user', {
+    //     // fields: ['LessonTitle', 'Lesson One'],
+    //     filters: { id: ctx.state.user.id },
+    //     // sort: { createdAt: 'DESC' },
+    //     populate: { orders: true },
+    // });
+
+
     // const hello = strapi.db.query('api::lesson.lesson').findMany({
     //     populate: true,
     //   });
