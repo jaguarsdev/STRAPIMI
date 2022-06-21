@@ -45,32 +45,30 @@ module.exports = createCoreController('api::lesson.lesson'
         // return data
         return search(lessons, await userbuy);
         
-        
-        
         // return lessons; 
     }
-    
-    // const entries = await strapi.entityService.findOne('plugin::users-permissions.user', {
-    //     // fields: ['LessonTitle', 'Lesson One'],
-    //     filters: { id: ctx.state.user.id },
-    //     // sort: { createdAt: 'DESC' },
-    //     populate: { orders: true },
-    // });
-
-
-    // const hello = strapi.db.query('api::lesson.lesson').findMany({
-    //     populate: true,
-    //   });
-    //   const fromUser = await strapi.db.query('api::lesson.lesson').findMany({where: { "LessonTitle": "esson Two" }});
-    //   const fromUser = await strapi.entityService.findOne('api::lesson.lesson', 1, {fields: ["LessonTitle": "Lesson One"]});
-    
-    // async find(ctx) {
-    //     ctx.query = { ...ctx.query, local: 'en' }
-    //     const { data, meta } = await super.find(ctx);
-    //     const mineDate = data;
-    //     meta.date = Date.now()
-    //     return { data, meta };
-    // },
-    
 })
+
+
+// const entries = await strapi.entityService.findOne('plugin::users-permissions.user', {
+//     // fields: ['LessonTitle', 'Lesson One'],
+//     filters: { id: ctx.state.user.id },
+//     // sort: { createdAt: 'DESC' },
+//     populate: { orders: true },
+// });
+
+
+// const hello = strapi.db.query('api::lesson.lesson').findMany({
+//     populate: true,
+//   });
+//   const fromUser = await strapi.db.query('api::lesson.lesson').findMany({where: { "LessonTitle": "esson Two" }});
+//   const fromUser = await strapi.entityService.findOne('api::lesson.lesson', 1, {fields: ["LessonTitle": "Lesson One"]});
+
+// async find(ctx) {
+//     ctx.query = { ...ctx.query, local: 'en' }
+//     const { data, meta } = await super.find(ctx);
+//     const mineDate = data;
+//     meta.date = Date.now()
+//     return { data, meta };
+// },
 );
