@@ -59,6 +59,12 @@
       "relation": "manyToMany",
       "target": "api::lesson.lesson",
       "mappedBy": "courses"
+    },
+    "summary": {
+      "type": "text",
+      "required": true,
+      "minLength": 15,
+      "maxLength": 60
     }
   }
 }

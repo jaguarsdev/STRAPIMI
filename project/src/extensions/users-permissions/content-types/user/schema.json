@@ -71,6 +71,21 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "users_permissions_user"
+    },
+    "profilePic": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "phoneNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true,
+      "max": "11",
+      "min": "11"
     }
   }
 }

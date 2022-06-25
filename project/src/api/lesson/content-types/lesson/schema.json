@@ -10,30 +10,18 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "LessonTitle": {
       "type": "string",
       "required": true,
       "unique": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "LessonContent": {
       "type": "richtext",
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "UniqueID": {
       "type": "uid",
@@ -45,18 +33,17 @@
       "target": "api::course.course",
       "inversedBy": "lessons"
     },
-    "LessonImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
+    "lessons": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {},
+      "component": "lesson.add-lesson",
+      "required": false
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::teacher.teacher"
     }
   }
 }
