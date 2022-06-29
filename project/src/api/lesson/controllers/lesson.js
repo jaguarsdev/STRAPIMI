@@ -40,7 +40,7 @@ module.exports = createCoreController('api::lesson.lesson'
                     }
                 }
             }
-            return ctx.body = "you dont have prem"
+            return ctx.body = {data: {attributes: {lessons: {msg : "you dont have prem"} } }  }
         }
         // return data
         return search(lessons, await userbuy);
